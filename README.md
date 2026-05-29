@@ -46,12 +46,6 @@ src/
 
 ---
 
-## 📸 Screenshots
-
-Coming soon.
-
----
-
 ## 🔗 Backend
 
 The backend repository is at:
