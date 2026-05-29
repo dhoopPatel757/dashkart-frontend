@@ -1,16 +1,59 @@
-# React + Vite
+# 🛒 Dashkart — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashkart is a full-stack e-commerce web application where users can browse products, add them to cart, and complete purchases using Stripe. Built as a personal project to learn React, REST APIs, and real-world deployment.
 
-Currently, two official plugins are available:
+🌐 **Live Site:** https://dashkart-frontend.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Technology      | Purpose             |
+| --------------- | ------------------- |
+| React 19        | UI framework        |
+| Tailwind CSS v4 | Styling             |
+| Vite            | Build tool          |
+| Axios           | API requests        |
+| React Router    | Client-side routing |
+| Stripe.js       | Payment processing  |
+| Vercel          | Deployment          |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+* Browse products and filter by category
+* Search products by name or description
+* Google OAuth and email/password authentication
+* JWT-based session management with auto token refresh
+* Add to cart, update quantities, remove items
+* Stripe card payment integration
+* Order history with item details
+* Profile completion modal for shipping address
+* Fully responsive on mobile and desktop
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── api/          # Axios API calls (auth, cart, orders, products)
+├── components/   # Reusable components (Navbar, ProtectedRoute, etc.)
+├── context/      # React Context (AuthContext, CartContext)
+└── pages/        # Page components (HomePage, CartPage, CheckoutPage, etc.)
+```
+
+---
+
+## 📸 Screenshots
+
+Coming soon.
+
+---
+
+## 🔗 Backend
+
+The backend repository is at:
+
+https://github.com/dhoopPatel757/dashkart-backend
