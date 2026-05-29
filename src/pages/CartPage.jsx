@@ -36,10 +36,11 @@ function CartPage() {
 
                 <div className="flex flex-col gap-4">
                     {cartItems.map(item => (
-                        <div key={item.id} className="bg-gray-50 rounded-2xl p-5 flex items-center gap-5">
+                        <div key={item.id} className="bg-gray-50 rounded-2xl p-3 md:p-5 flex items-center gap-2 md:gap-5">
 
                             {/* Image */}
-                            <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center overflow-hidden shrink-0">
+                            {/* <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center overflow-hidden shrink-0"> */}
+                            <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-xl flex items-center justify-center overflow-hidden shrink-0">
                                 {item.product_image ? (
                                     <img src={item.product_image} alt={item.product_name} className="w-full h-full object-contain p-2" />
                                 ) : (
@@ -54,10 +55,10 @@ function CartPage() {
                             </div>
 
                             {/* Quantity controls */}
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-1.5 md:gap-3">
                                 <button
                                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                    className="w-8 h-8 rounded-lg bg-gray-200 text-gray-900 font-semibold hover:bg-gray-300 transition flex items-center justify-center"
+                                    className="w-7 h-7 rounded-lg md:w-8 md:h-8 bg-gray-200 text-gray-900 font-semibold hover:bg-gray-300 transition flex items-center justify-center"
                                 >
                                     −
                                 </button>
@@ -65,7 +66,7 @@ function CartPage() {
                                 <button
                                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                     disabled={item.quantity >= item.product_stock}
-                                    className={`w-8 h-8 rounded-lg font-semibold transition flex items-center justify-center ${item.quantity >= item.product_stock
+                                    className={`w-7 h-7 md:w-8 md:h-8 rounded-lg font-semibold transition flex items-center justify-center ${item.quantity >= item.product_stock
                                         ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                                         : 'bg-gray-900 text-white hover:bg-gray-700'
                                         }`}
