@@ -67,7 +67,7 @@ function HomePage() {
                     <p className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">
                         Welcome to Dashkart
                     </p>
-                    <h1 className="text-6xl md:text-8xl font-bold text-gray-900 tracking-tight leading-tight">
+                    <h1 className="text-5xl md:text-6xl font-bold text-gray-900 tracking-tight leading-tight">
                         The Ecommerce store.<br />
                         <span className="text-gray-400">Engineered different.</span>
                     </h1>
