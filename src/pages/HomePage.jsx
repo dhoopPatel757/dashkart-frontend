@@ -63,7 +63,7 @@ function HomePage() {
             <div className="min-h-screen bg-white">
 
                 {/* ── Hero Section ── */}
-                <section className="bg-gradient-to-b from-gray-50 to-white px-6 py-24 text-center pt-40">
+                <section className="bg-gradient-to-b from-gray-50 to-white px-6 py-24 text-center pt-12 md:pt-40">
                     <p className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">
                         Welcome to Dashkart
                     </p>
