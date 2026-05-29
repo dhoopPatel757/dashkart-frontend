@@ -92,7 +92,7 @@ function HomePage() {
                 </section>
 
                 {/* ── Category Filter ── */}
-                <section id="products" className="max-w-6xl mx-auto px-6 pt-45 pb-6">
+                <section id="products" className="max-w-6xl mx-auto px-6 pt-44 pb-6">
                     <h2 className="text-2xl font-bold text-gray-900 tracking-tight mb-6">
                         Browse products
                     </h2>
