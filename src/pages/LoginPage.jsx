@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { login, googleLogin } from '../api/auth'
 // login — the function that sends email + password to Django
 // googleLogin — the function that sends Google token to Django
@@ -17,6 +17,8 @@ function LoginPage() {
     // destructuring loginUser. 
     const { loginUser } = useAuth()
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from || '/'
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // it stops from being a page refresh.
@@ -26,7 +28,7 @@ function LoginPage() {
         try {
             const res = await login({ email, password }) // sending inputed email and password to the backend and get the response through data object.
             loginUser(res.data.user, res.data.tokens) // storing tokens in localStorage so we can access it global throughout the website.
-            navigate('/') // navigating automatically to the home page without any user actions.
+            navigate(from) // navigating automatically to the home page without any user actions.
         } catch (err) {
             setError(err.response?.data?.message || 'Login failed. Please try again.') // ? is optional chaining.
             // err.response is the response sent back by Django. .data is the data inside that. If there is no data inside it then return undefined.
@@ -41,7 +43,7 @@ function LoginPage() {
             try {
                 const res = await googleLogin(tokenResponse.access_token) // we send this token to the Django to verify it and get the backend token.
                 loginUser(res.data.user, res.data.tokens)
-                navigate('/')
+                navigate(from)
             } catch {
                 setError('Google login failed. Please try again.')
             }

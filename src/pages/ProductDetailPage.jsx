@@ -103,7 +103,7 @@ function ProductDetailPage() {
                             <button
                                 onClick={() => {
                                     if(!user) {
-                                        navigate("/login");
+                                        navigate("/login", {state: { from: `/products/${product.slug}` }});
                                         return;
                                     }
                                     if(!alreadyInCart) {
