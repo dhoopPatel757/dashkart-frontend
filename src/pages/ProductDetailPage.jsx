@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate} from 'react-router-dom'
 import { getProductBySlug } from '../api/products'
 import { useCart } from '../context/CartContext'
+import { useAuth} from '../context/AuthContext'
 
 function ProductDetailPage() {
     const { slug } = useParams();
+    const navigate = useNavigate();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
     const { addToCart, cartItems } = useCart(); // addToCart is a function from CartContext that allows us to add a product to the cart.
-
+    const {user} = useAuth();
     const alreadyInCart = cartItems.some(item => item.product_id === product?.id)
 
     useEffect(() => {
@@ -99,7 +101,15 @@ function ProductDetailPage() {
                         {/* Buttons */}
                         <div className="mt-8">
                             <button
-                                onClick={() => !alreadyInCart && addToCart(product)}
+                                onClick={() => {
+                                    if(!user) {
+                                        navigate("/login");
+                                        return;
+                                    }
+                                    if(!alreadyInCart) {
+                                        addToCart(product);
+                                    }
+                                }}
                                 disabled={alreadyInCart}
                                 className={`w-full py-3 rounded-xl text-sm font-semibold transition ${alreadyInCart
                                         ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
